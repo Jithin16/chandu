@@ -10,7 +10,7 @@ class ProjectsSection extends StatelessWidget {
       color: Colors.blueGrey.withValues(alpha: 0.05),
       padding: EdgeInsets.symmetric(
         horizontal: isMobile ? 16 : 64,
-        vertical: 48,
+        vertical: 50,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
