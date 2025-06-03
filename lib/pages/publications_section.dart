@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../theme.dart';
 
 class PublicationsSection extends StatelessWidget {
   final bool isMobile;
@@ -8,24 +7,27 @@ class PublicationsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColors.background,
+      color: Colors.blueGrey.withValues(alpha: 0.05),
       padding: EdgeInsets.symmetric(
         horizontal: isMobile ? 16 : 64,
         vertical: 40,
       ),
-      child: Card(
-        elevation: AppCardStyle.elevation,
-        shape: AppCardStyle.shape,
-        color: AppColors.card,
-        shadowColor: AppColors.cardShadow,
-        child: Padding(
-          padding: AppCardStyle.padding,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text('Publications', style: AppTextStyles.sectionTitle),
-              const SizedBox(height: 16),
-              Column(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'Publications',
+            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 16),
+          Card(
+            elevation: 1,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(12)),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   PublicationItem(
@@ -48,9 +50,9 @@ class PublicationsSection extends StatelessWidget {
                   ),
                 ],
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
@@ -64,7 +66,7 @@ class PublicationItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4.0),
-      child: Text('• $text', style: AppTextStyles.body),
+      child: Text('• $text'),
     );
   }
 }
