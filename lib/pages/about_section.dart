@@ -31,7 +31,7 @@ class AboutSection extends StatelessWidget {
                     backgroundColor: AppColors.primary.withValues(alpha: 0.1),
                     child: Icon(
                       Icons.person,
-                      size: 40,
+                      size: 42,
                       color: AppColors.primary,
                     ),
                   ),
