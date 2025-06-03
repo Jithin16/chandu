@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        fontFamily: 'poppins',
         colorScheme: ColorScheme(
           brightness: Brightness.light,
           primary: AppColors.primary,
@@ -35,7 +36,6 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.background,
         cardColor: AppColors.card,
         dividerColor: AppColors.divider,
-        fontFamily: 'Roboto',
         textTheme: const TextTheme(
           headlineMedium: AppTextStyles.sectionTitle,
           titleMedium: AppTextStyles.cardTitle,
