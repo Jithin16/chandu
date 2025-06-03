@@ -292,13 +292,13 @@ class _NavButtonAnimatedState extends State<_NavButtonAnimated> {
           : Matrix4.identity(),
       child: TextButton(
         style: ButtonStyle(
-          overlayColor: MaterialStateProperty.all(Colors.transparent),
-          backgroundColor: MaterialStateProperty.all(Colors.transparent),
-          foregroundColor: MaterialStateProperty.resolveWith<Color?>((states) {
+          overlayColor: WidgetStateProperty.all(Colors.transparent),
+          backgroundColor: WidgetStateProperty.all(Colors.transparent),
+          foregroundColor: WidgetStateProperty.resolveWith<Color?>((states) {
             if (_hovering) return AppColors.primary;
             return null;
           }),
-          elevation: MaterialStateProperty.all(_hovering ? 2 : 0),
+          elevation: WidgetStateProperty.all(_hovering ? 2 : 0),
         ),
         onHover: (hover) => setState(() => _hovering = hover),
         onPressed: () => widget.onTap(widget.label),
