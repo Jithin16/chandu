@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'pages/hero_section.dart';
 import 'pages/about_section.dart';
 import 'pages/contact_section.dart';
-import 'pages/experience_section.dart' as exp;
-import 'pages/publications_section.dart' as pub;
+import 'theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,12 +14,39 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'My Portfolio',
+      title: 'Chandu\'s Portfolio',
+      themeMode: ThemeMode.light,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
-        useMaterial3: true,
+        colorScheme: ColorScheme(
+          brightness: Brightness.light,
+          primary: AppColors.primary,
+          onPrimary: Colors.white,
+          secondary: AppColors.secondary,
+          onSecondary: Colors.white,
+
+          surface: AppColors.card,
+          onSurface: AppColors.textPrimary,
+          error: Colors.red,
+          onError: Colors.white,
+        ),
+        scaffoldBackgroundColor: AppColors.background,
+        cardColor: AppColors.card,
+        dividerColor: AppColors.divider,
         fontFamily: 'Roboto',
+        textTheme: const TextTheme(
+          headlineMedium: AppTextStyles.sectionTitle,
+          titleMedium: AppTextStyles.cardTitle,
+          bodyMedium: AppTextStyles.body,
+        ),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: AppColors.card,
+          foregroundColor: AppColors.primary,
+          elevation: 0,
+          centerTitle: true,
+        ),
+        iconTheme: const IconThemeData(color: AppColors.icon),
+        useMaterial3: true,
       ),
       home: const PortfolioHomePage(),
     );
@@ -186,7 +212,7 @@ class _NavBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           const Text(
-            'Your Name',
+            'Chandu',
             style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
           ),
           if (!isMobile)
@@ -269,7 +295,7 @@ class ExperienceSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blueGrey.withOpacity(0.05),
+      color: Colors.blueGrey.withValues(alpha: 0.05),
       padding: EdgeInsets.symmetric(
         horizontal: isMobile ? 16 : 64,
         vertical: 40,
@@ -330,7 +356,7 @@ class PublicationsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blueGrey.withOpacity(0.05),
+      color: Colors.blueGrey.withValues(alpha: 0.05),
       padding: EdgeInsets.symmetric(
         horizontal: isMobile ? 16 : 64,
         vertical: 40,

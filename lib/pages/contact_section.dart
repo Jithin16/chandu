@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../theme.dart';
 
 class ContactSection extends StatelessWidget {
   final bool isMobile;
@@ -14,19 +15,16 @@ class ContactSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            'Contact',
-            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-          ),
+          const Text('Contact', style: AppTextStyles.sectionTitle),
           const SizedBox(height: 32),
           Center(
             child: Card(
-              elevation: 2,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
-              ),
+              elevation: AppCardStyle.elevation,
+              shape: AppCardStyle.shape,
+              color: AppColors.card,
+              shadowColor: AppColors.cardShadow,
               child: Padding(
-                padding: const EdgeInsets.all(32.0),
+                padding: AppCardStyle.padding,
                 child: LayoutBuilder(
                   builder: (context, constraints) {
                     bool isWide = constraints.maxWidth > 500;
@@ -43,38 +41,47 @@ class ContactSection extends StatelessWidget {
                                       children: const [
                                         Icon(
                                           Icons.email,
-                                          color: Colors.blueGrey,
+                                          color: AppColors.icon,
                                         ),
                                         SizedBox(width: 8),
-                                        Text('chandubajaj095@gmail.com'),
+                                        Text(
+                                          'chandubajaj095@gmail.com',
+                                          style: AppTextStyles.contact,
+                                        ),
                                       ],
                                     ),
-                                    const SizedBox(height: 16),
+                                    SizedBox(height: 16),
                                     Row(
                                       children: const [
                                         Icon(
                                           Icons.phone,
-                                          color: Colors.blueGrey,
+                                          color: AppColors.icon,
                                         ),
                                         SizedBox(width: 8),
-                                        Text('+39 3272965743'),
+                                        Text(
+                                          '+39 3272965743',
+                                          style: AppTextStyles.contact,
+                                        ),
                                       ],
                                     ),
-                                    const SizedBox(height: 16),
+                                    SizedBox(height: 16),
                                     Row(
                                       children: const [
                                         Icon(
                                           Icons.location_on,
-                                          color: Colors.blueGrey,
+                                          color: AppColors.icon,
                                         ),
                                         SizedBox(width: 8),
-                                        Text('Rome, Italy'),
+                                        Text(
+                                          'Rome, Italy',
+                                          style: AppTextStyles.contact,
+                                        ),
                                       ],
                                     ),
                                   ],
                                 ),
                               ),
-                              const SizedBox(width: 48),
+                              SizedBox(width: 48),
                               Expanded(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -83,24 +90,25 @@ class ContactSection extends StatelessWidget {
                                       children: const [
                                         Icon(
                                           Icons.language,
-                                          color: Colors.blueGrey,
+                                          color: AppColors.icon,
                                         ),
                                         SizedBox(width: 8),
-                                        Text('www.chandu0950.com'),
+                                        Text(
+                                          'www.chandu0950.com',
+                                          style: AppTextStyles.contact,
+                                        ),
                                       ],
                                     ),
-                                    const SizedBox(height: 16),
+                                    SizedBox(height: 16),
                                     Row(
                                       children: const [
-                                        Icon(
-                                          Icons.link,
-                                          color: Colors.blueGrey,
-                                        ),
+                                        Icon(Icons.link, color: AppColors.icon),
                                         SizedBox(width: 8),
                                         Flexible(
                                           child: Text(
                                             'LinkedIn: sarathchandrakumar-thottuchirayil',
                                             overflow: TextOverflow.ellipsis,
+                                            style: AppTextStyles.contact,
                                           ),
                                         ),
                                       ],
@@ -115,47 +123,60 @@ class ContactSection extends StatelessWidget {
                             children: [
                               Row(
                                 children: const [
-                                  Icon(Icons.email, color: Colors.blueGrey),
+                                  Icon(Icons.email, color: AppColors.icon),
                                   SizedBox(width: 8),
-                                  Text('chandubajaj095@gmail.com'),
+                                  Text(
+                                    'chandubajaj095@gmail.com',
+                                    style: AppTextStyles.contact,
+                                  ),
                                 ],
                               ),
-                              const SizedBox(height: 16),
+                              SizedBox(height: 16),
                               Row(
                                 children: const [
-                                  Icon(Icons.phone, color: Colors.blueGrey),
+                                  Icon(Icons.phone, color: AppColors.icon),
                                   SizedBox(width: 8),
-                                  Text('+39 3272965743'),
+                                  Text(
+                                    '+39 3272965743',
+                                    style: AppTextStyles.contact,
+                                  ),
                                 ],
                               ),
-                              const SizedBox(height: 16),
+                              SizedBox(height: 16),
                               Row(
                                 children: const [
                                   Icon(
                                     Icons.location_on,
-                                    color: Colors.blueGrey,
+                                    color: AppColors.icon,
                                   ),
                                   SizedBox(width: 8),
-                                  Text('Rome, Italy'),
+                                  Text(
+                                    'Rome, Italy',
+                                    style: AppTextStyles.contact,
+                                  ),
                                 ],
                               ),
-                              const SizedBox(height: 16),
+                              SizedBox(height: 16),
                               Row(
                                 children: const [
-                                  Icon(Icons.language, color: Colors.blueGrey),
+                                  Icon(Icons.language, color: AppColors.icon),
                                   SizedBox(width: 8),
-                                  Text('www.chandu0950.com'),
+                                  Text(
+                                    'www.chandu0950.com',
+                                    style: AppTextStyles.contact,
+                                  ),
                                 ],
                               ),
-                              const SizedBox(height: 16),
+                              SizedBox(height: 16),
                               Row(
                                 children: const [
-                                  Icon(Icons.link, color: Colors.blueGrey),
+                                  Icon(Icons.link, color: AppColors.icon),
                                   SizedBox(width: 8),
                                   Flexible(
                                     child: Text(
                                       'LinkedIn: sarathchandrakumar-thottuchirayil',
                                       overflow: TextOverflow.ellipsis,
+                                      style: AppTextStyles.contact,
                                     ),
                                   ),
                                 ],

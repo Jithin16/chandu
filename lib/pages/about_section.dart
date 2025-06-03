@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../theme.dart';
 
 class AboutSection extends StatelessWidget {
   final bool isMobile;
@@ -7,16 +8,18 @@ class AboutSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blueGrey.withOpacity(0.05),
+      color: AppColors.background,
       padding: EdgeInsets.symmetric(
         horizontal: isMobile ? 16 : 64,
         vertical: 40,
       ),
       child: Card(
-        elevation: 2,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        elevation: AppCardStyle.elevation,
+        shape: AppCardStyle.shape,
+        color: AppColors.card,
+        shadowColor: AppColors.cardShadow,
         child: Padding(
-          padding: const EdgeInsets.all(24.0),
+          padding: AppCardStyle.padding,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -25,50 +28,28 @@ class AboutSection extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 36,
-                    backgroundColor: Colors.blueGrey.shade100,
-                    child: Icon(Icons.person, size: 40, color: Colors.blueGrey),
+                    backgroundColor: AppColors.primary.withValues(alpha: 0.1),
+                    child: Icon(
+                      Icons.person,
+                      size: 40,
+                      color: AppColors.primary,
+                    ),
                   ),
                   const SizedBox(width: 24),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: const [
+                        Text('About Me', style: AppTextStyles.sectionTitle),
+                        SizedBox(height: 8),
                         Text(
-                          'SARATHCHANDRAKUMAR T. (CHANDU)',
-                          style: TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          'Inquisitive nature, always eager for new knowledge and advancing technologies. Pursuing work related to Artificial Intelligence and robotics. Fascinated by Space Exploration and the concepts of warp drive. Experienced and passionate in Embedded Systems, with strong programming and design skills on Windows and Linux. Experienced in multi-cultural environments.',
+                          style: AppTextStyles.body,
                         ),
-                        SizedBox(height: 4),
-                        Text(
-                          'Aerospace Engineer',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.blueGrey,
-                          ),
-                        ),
-                        SizedBox(height: 4),
-                        Text('Rome, Italy'),
-                        SizedBox(height: 4),
-                        Text('chandubajaj095@gmail.com | +39 3272965743'),
-                        SizedBox(height: 4),
-                        Text('www.chandu0950.com'),
-                        SizedBox(height: 4),
-                        Text('LinkedIn: sarathchandrakumar-thottuchirayil'),
                       ],
                     ),
                   ),
                 ],
-              ),
-              const SizedBox(height: 24),
-              const Text(
-                'About Me',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 8),
-              const Text(
-                'Inquisitive nature, always eager for new knowledge and advancing technologies. Pursuing work related to Artificial Intelligence and robotics. Fascinated by Space Exploration and the concepts of warp drive. Experienced and passionate in Embedded Systems, with strong programming and design skills on Windows and Linux. Experienced in multi-cultural environments.',
               ),
             ],
           ),
@@ -85,7 +66,7 @@ class ExperienceSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blueGrey.withOpacity(0.05),
+      color: Colors.blueGrey.withValues(alpha: 0.05),
       padding: EdgeInsets.symmetric(
         horizontal: isMobile ? 16 : 64,
         vertical: 40,
@@ -145,7 +126,7 @@ class PublicationsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blueGrey.withOpacity(0.05),
+      color: Colors.blueGrey.withValues(alpha: 0.05),
       padding: EdgeInsets.symmetric(
         horizontal: isMobile ? 16 : 64,
         vertical: 40,

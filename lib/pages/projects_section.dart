@@ -7,7 +7,7 @@ class ExperienceSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blueGrey.withOpacity(0.05),
+      color: Colors.blueGrey.withValues(alpha: 0.05),
       padding: EdgeInsets.symmetric(
         horizontal: isMobile ? 16 : 64,
         vertical: 40,

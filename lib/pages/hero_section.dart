@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../theme.dart';
 
 class HeroSection extends StatelessWidget {
   final bool isMobile;
@@ -17,17 +18,19 @@ class HeroSection extends StatelessWidget {
               children: [
                 const CircleAvatar(
                   radius: 48,
+                  backgroundColor: AppColors.primary,
                   backgroundImage: AssetImage('assets/profile.jpg'),
                 ),
                 const SizedBox(height: 16),
                 const Text(
-                  'Hi, I\'m Your Name',
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                  'Hi, I\'m Sarathchandrakumar T.S.',
+                  textAlign: TextAlign.center,
+                  style: AppTextStyles.sectionTitle,
                 ),
                 const SizedBox(height: 8),
                 const Text(
-                  'Flutter Developer | UI/UX Enthusiast',
-                  style: TextStyle(fontSize: 18, color: Colors.grey),
+                  'Aerospace Engineer ',
+                  style: AppTextStyles.cardSubtitle,
                 ),
               ],
             )
@@ -35,6 +38,7 @@ class HeroSection extends StatelessWidget {
               children: [
                 const CircleAvatar(
                   radius: 64,
+                  backgroundColor: AppColors.primary,
                   backgroundImage: AssetImage('assets/profile.jpg'),
                 ),
                 const SizedBox(width: 48),
@@ -42,16 +46,13 @@ class HeroSection extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
                     Text(
-                      'Hi, I\'m Your Name',
-                      style: TextStyle(
-                        fontSize: 36,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      'Hi, I\'m Sarathchandrakumar T.S.',
+                      style: AppTextStyles.sectionTitle,
                     ),
                     SizedBox(height: 12),
                     Text(
-                      'Flutter Developer | UI/UX Enthusiast',
-                      style: TextStyle(fontSize: 22, color: Colors.grey),
+                      'Aerospace Engineer',
+                      style: AppTextStyles.cardSubtitle,
                     ),
                   ],
                 ),
