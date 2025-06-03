@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Chandu's Aerospace Portfolio.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="portfolio">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.ico" />
+
+  <title>Chandu's Portfolio</title>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+      background: #96c5fb;
+    }
+
+    .box {
+      width: 300px;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      height: 15px;
+      width: 105px;
+      display: flex;
+      position: relative;
+    }
+
+    .circle {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: #1565C0;
+      animation: move 500ms linear 0ms infinite;
+      margin-right: 30px;
+    }
+
+    .circle:first-child {
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: grow 500ms linear 0ms infinite;
+    }
+
+    .circle:last-child {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-right: 0;
+      animation: grow 500ms linear 0s infinite reverse;
+    }
+
+    @keyframes grow {
+      from {
+        transform: scale(0, 0);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1, 1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes move {
+      from {
+        transform: translateX(0px);
+      }
+
+      to {
+        transform: translateX(45px);
+      }
+    }
+
+    @keyframes rocketUp {
+      0% {
+        transform: translateY(0);
+      }
+
+      80% {
+        transform: translateY(-40px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    svg {
+      animation: rocketUp 1.2s cubic-bezier(.4, 1.4, .6, 1) infinite;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box" id="loading_container">
+    <!-- Professional Loader: Circular Orbiting Dots (Aerospace/Tech style) -->
+    <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="60" cy="60" r="48" stroke="#1565C0" stroke-width="4" fill="none" opacity="0.15" />
+      <circle cx="60" cy="60" r="36" stroke="#1976D2" stroke-width="2" fill="none" opacity="0.10" />
+      <circle id="dot1" cx="60" cy="20" r="7" fill="#1565C0">
+        <animateTransform attributeName="transform" type="rotate" from="0 60 60" to="360 60 60" dur="1.2s"
+          repeatCount="indefinite" />
+      </circle>
+      <circle id="dot2" cx="60" cy="100" r="5" fill="#1976D2">
+        <animateTransform attributeName="transform" type="rotate" from="180 60 60" to="540 60 60" dur="1.2s"
+          repeatCount="indefinite" />
+      </circle>
+      <circle id="dot3" cx="100" cy="60" r="4" fill="#90CAF9">
+        <animateTransform attributeName="transform" type="rotate" from="90 60 60" to="450 60 60" dur="1.2s"
+          repeatCount="indefinite" />
+      </circle>
+      <circle id="dot4" cx="20" cy="60" r="4" fill="#FFD54F">
+        <animateTransform attributeName="transform" type="rotate" from="270 60 60" to="630 60 60" dur="1.2s"
+          repeatCount="indefinite" />
+      </circle>
+    </svg>
+    <!-- <div style="position:absolute;top:140px;width:100%;text-align:center;">
+      <span style="font-family:sans-serif;color:#1565C0;font-size:18px;letter-spacing:1px;">Loading your
+        portfolio...</span>
+    </div> -->
+  </div>
+  <script src="flutter_bootstrap.js" async></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('flutter-first-frame', function () {
+        navigator.serviceWorker.register('flutter_service_worker.js?v=3827552022');
+      });
+    }
+  </script>
+  <!-- Removes the loading indicator after Flutter loads -->
+  <script>
+    window.addEventListener('flutter-first-frame', function () {
+      var loadingIndicator = document.getElementById("loading_container");
+      if (loadingIndicator) {
+        loadingIndicator.remove();
+      }
+    });
+  </script>
+</body>
+
+</html>
