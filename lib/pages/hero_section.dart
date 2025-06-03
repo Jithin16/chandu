@@ -19,7 +19,7 @@ class HeroSection extends StatelessWidget {
                 const CircleAvatar(
                   radius: 48,
                   backgroundColor: AppColors.primary,
-                  backgroundImage: AssetImage('assets/profile.jpeg'),
+                  backgroundImage: AssetImage('assets/images/profile.jpeg'),
                 ),
                 const SizedBox(height: 16),
                 const Text(
@@ -39,7 +39,7 @@ class HeroSection extends StatelessWidget {
                 const CircleAvatar(
                   radius: 64,
                   backgroundColor: AppColors.primary,
-                  backgroundImage: AssetImage('assets/profile.jpeg'),
+                  backgroundImage: AssetImage('assets/images/profile.jpeg'),
                 ),
                 const SizedBox(width: 48),
                 Column(
