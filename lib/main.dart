@@ -133,11 +133,17 @@ class _PortfolioHomePageState extends State<PortfolioHomePage> {
           bool isMobile = constraints.maxWidth < 700;
           return Stack(
             children: [
-              SingleChildScrollView(
-                controller: scrollController,
-                child: Column(
-                  children: [
-                    _NavBar(
+              // Sticky header
+              Positioned(
+                top: 0,
+                left: 0,
+                right: 0,
+                child: Material(
+                  elevation: 0.5,
+                  color: Colors.transparent,
+                  child: Container(
+                    color: AppColors.background,
+                    child: _NavBar(
                       isMobile: isMobile,
                       onNavTap: (section) {
                         switch (section) {
@@ -156,29 +162,40 @@ class _PortfolioHomePageState extends State<PortfolioHomePage> {
                         }
                       },
                     ),
-                    HeroSection(isMobile: isMobile),
-                    Container(
-                      key: aboutKey,
-                      child: AboutSection(isMobile: isMobile),
-                    ),
-                    Container(
-                      key: experienceKey,
-                      child: exp.ExperienceSection(isMobile: isMobile),
-                    ),
-                    Container(
-                      key: publicationsKey,
-                      child: pub.PublicationsSection(isMobile: isMobile),
-                    ),
-                    Container(
-                      key: contactKey,
-                      child: ContactSection(isMobile: isMobile),
-                    ),
-                    const SizedBox(height: 32),
-                    const Text(
-                      '© 2025 Jithindash K. All rights reserved.',
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                  ],
+                  ),
+                ),
+              ),
+              // Main scrollable content with top padding for sticky header
+              Padding(
+                padding: const EdgeInsets.only(top: 88), // Adjust if needed
+                child: SingleChildScrollView(
+                  controller: scrollController,
+                  child: Column(
+                    children: [
+                      HeroSection(isMobile: isMobile),
+                      Container(
+                        key: aboutKey,
+                        child: AboutSection(isMobile: isMobile),
+                      ),
+                      Container(
+                        key: experienceKey,
+                        child: exp.ExperienceSection(isMobile: isMobile),
+                      ),
+                      Container(
+                        key: publicationsKey,
+                        child: pub.PublicationsSection(isMobile: isMobile),
+                      ),
+                      Container(
+                        key: contactKey,
+                        child: ContactSection(isMobile: isMobile),
+                      ),
+                      const SizedBox(height: 32),
+                      const Text(
+                        '© 16.jithin@gmail.com. All rights reserved.',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               if (showGoToTop)
@@ -246,9 +263,47 @@ class _NavButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: () => onTap(label),
-      child: Text(label, style: const TextStyle(fontSize: 18)),
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: _NavButtonAnimated(label: label, onTap: onTap),
+    );
+  }
+}
+
+class _NavButtonAnimated extends StatefulWidget {
+  final String label;
+  final void Function(String section) onTap;
+  const _NavButtonAnimated({required this.label, required this.onTap});
+
+  @override
+  State<_NavButtonAnimated> createState() => _NavButtonAnimatedState();
+}
+
+class _NavButtonAnimatedState extends State<_NavButtonAnimated> {
+  bool _hovering = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 180),
+      curve: Curves.easeOut,
+      transform: _hovering
+          ? Matrix4.translationValues(0, -6, 0)
+          : Matrix4.identity(),
+      child: TextButton(
+        style: ButtonStyle(
+          overlayColor: MaterialStateProperty.all(Colors.transparent),
+          backgroundColor: MaterialStateProperty.all(Colors.transparent),
+          foregroundColor: MaterialStateProperty.resolveWith<Color?>((states) {
+            if (_hovering) return AppColors.primary;
+            return null;
+          }),
+          elevation: MaterialStateProperty.all(_hovering ? 2 : 0),
+        ),
+        onHover: (hover) => setState(() => _hovering = hover),
+        onPressed: () => widget.onTap(widget.label),
+        child: Text(widget.label, style: const TextStyle(fontSize: 18)),
+      ),
     );
   }
 }
