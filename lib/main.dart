@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_plugins/flutter_web_plugins.dart'
+    show setUrlStrategy, HashUrlStrategy;
 import 'pages/hero_section.dart';
 import 'pages/about_section.dart';
 import 'pages/contact_section.dart';
@@ -7,6 +9,7 @@ import 'pages/publications_section.dart' as pub;
 import 'theme.dart';
 
 void main() {
+  setUrlStrategy(HashUrlStrategy());
   runApp(const MyApp());
 }
 
